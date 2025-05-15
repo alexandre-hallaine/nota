@@ -1,75 +1,27 @@
-# Nuxt Minimal Starter
+# Nota
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+## 🧭 Idée
 
-## Setup
+Un espace épuré pour écrire et lire de courtes notes, dans un flux strictement chronologique. Pas d’algorithme, pas d’interaction superflue — juste du texte, dans l’ordre.
 
-Make sure to install dependencies:
+## ⚙️ Fonctionnalités
 
-```bash
-# npm
-npm install
+### Ce que Nota fait :
 
-# pnpm
-pnpm install
+* ✏️ Écrire et publier des notes (texte uniquement)
+* 🕒 Affichage en temps réel, par ordre de publication
+* 👤 Suivre ou arrêter de suivre un utilisateur
+* 📄 Voir les notes d’un utilisateur
 
-# yarn
-yarn install
+### Ce que Nota ne fait pas :
 
-# bun
-bun install
-```
+* ❌ Réactions (likes, partages, commentaires)
+* ❌ Médias (images, vidéos, GIFs)
+* ❌ Messages privés
+* ❌ Algorithmes, tendances, suggestions
+* ❌ Profils détaillés (avatar, bio, liens…)
 
-## Development Server
+## 🛠️ Stack
 
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+* **Nuxt** (frontend & backend)
+* **Cloudflare** (infra)
