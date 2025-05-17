@@ -6,7 +6,8 @@ export default defineNuxtConfig({
     '@nuxt/eslint',
     '@nuxt/ui-pro',
     '@nuxt/test-utils',
-    'nuxt-auth-utils'
+    'nuxt-auth-utils',
+    '@nuxthub/core'
   ],
   css: ['~/assets/css/main.css']
 })
