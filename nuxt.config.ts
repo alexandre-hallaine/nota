@@ -9,5 +9,6 @@ export default defineNuxtConfig({
     'nuxt-auth-utils',
     '@nuxthub/core'
   ],
-  css: ['~/assets/css/main.css']
+  css: ['~/assets/css/main.css'],
+  hub: { workers: true }
 })
