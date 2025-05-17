@@ -6,7 +6,7 @@ const { loggedIn, clear, openInPopup } = useUserSession()
   <UApp>
     <UHeader>
       <button v-if="loggedIn" @click="clear">Logout</button>
-      <button v-else @click="openInPopup('/auth/github')">Login with GitHub</button>
+      <button v-else @click="openInPopup('/api/auth/github')">Login with GitHub</button>
     </UHeader>
 
     <NuxtPage />

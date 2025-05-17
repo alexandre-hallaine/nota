@@ -1,6 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  compatibilityDate: '2024-11-01',
+  compatibilityDate: '2025-05-17',
   devtools: { enabled: true },
   modules: [
     '@nuxt/eslint',
@@ -10,6 +10,7 @@ export default defineNuxtConfig({
     '@nuxthub/core'
   ],
   css: ['~/assets/css/main.css'],
-  hub: { workers: true },
-  nitro: { experimental: { openAPI: true } }
+  hub: { workers: true, database: true },
+  nitro: { experimental: { openAPI: true } },
+  $development: { hub: { remote: true } }
 })
