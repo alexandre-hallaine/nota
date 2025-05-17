@@ -1,25 +1,25 @@
 # Nota
 
-## 🧭 Idée
+## 🧭 Idea
 
-Un espace épuré pour écrire et lire de courtes notes, dans un flux strictement chronologique. Pas d’algorithme, pas d’interaction superflue — juste du texte, dans l’ordre.
+A clean space for writing and reading short notes, in a strictly chronological feed. No algorithms, no superfluous interaction — just text, in order.
 
-## ⚙️ Fonctionnalités
+## ⚙️ Features
 
-### Ce que Nota fait :
+### What Nota Does:
 
-* ✏️ Écrire et publier des notes (texte uniquement)
-* 🕒 Affichage en temps réel, par ordre de publication
-* 👤 Suivre ou arrêter de suivre un utilisateur
-* 📄 Voir les notes d’un utilisateur
+* ✏️ Write and publish notes (text only)
+* 🕒 Real-time display, in order of publication
+* 👤 Follow or unfollow a user
+* 📄 View a user's notes
 
-### Ce que Nota ne fait pas :
+### What Nota Doesn't Do:
 
-* ❌ Réactions (likes, partages, commentaires)
-* ❌ Médias (images, vidéos, GIFs)
-* ❌ Messages privés
-* ❌ Algorithmes, tendances, suggestions
-* ❌ Profils détaillés (avatar, bio, liens…)
+* ❌ Reactions (likes, shares, comments)
+* ❌ Media (images, videos, GIFs)
+* ❌ Private messages
+* ❌ Algorithms, trends, suggestions
+* ❌ Detailed profiles (avatar, bio, links...)
 
 ## 🛠️ Stack
 
