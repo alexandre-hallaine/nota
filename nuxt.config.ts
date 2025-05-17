@@ -10,5 +10,6 @@ export default defineNuxtConfig({
     '@nuxthub/core'
   ],
   css: ['~/assets/css/main.css'],
-  hub: { workers: true }
+  hub: { workers: true },
+  nitro: { experimental: { openAPI: true } }
 })
