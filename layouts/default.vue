@@ -5,6 +5,10 @@ const items = [
   {
     label: 'Home',
     to: '/app',
+  },
+  {
+    label: 'Me',
+    to: `/user/${user.value.id}`,
   }
 ]
 
@@ -37,8 +41,6 @@ watch(loggedIn, () => {
       </template>
     </UHeader>
 
-    <UPageSection>
-      <slot/>
-    </UPageSection>
+    <slot/>
   </UPage>
 </template>
