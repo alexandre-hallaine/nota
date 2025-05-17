@@ -14,29 +14,11 @@ const posts = ref(Array.from({length: 50},
     ]
   })))
 
-  definePageMeta({
-    middleware: 'auth'
-  })
+definePageMeta({
+  middleware: 'auth'
+})
 </script>
 
 <template>
-  <UApp>
-    <UPage>
-      <template #left>
-        <UPageAside>
-          <UPageCard
-            title="Tailwind CSS"
-            description="Nuxt UI v3 integrates with latest Tailwind CSS v4, bringing significant improvements."
-            icon="i-simple-icons-tailwindcss"
-            orientation="horizontal"
-          >
-          </UPageCard>
-        </UPageAside>
-      </template>
-
-      <UPageSection>
-        <UBlogPosts :posts="posts" />
-      </UPageSection>
-    </UPage>
-  </UApp>
+  <UBlogPosts :posts="posts"/>
 </template>
