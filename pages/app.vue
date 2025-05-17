@@ -13,6 +13,10 @@ const posts = ref(Array.from({length: 50},
       }
     ]
   })))
+
+  definePageMeta({
+    middleware: 'auth'
+  })
 </script>
 
 <template>
