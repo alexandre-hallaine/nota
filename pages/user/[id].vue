@@ -8,6 +8,15 @@ const posts = ref(Array.from({length: 50},
     })))
 
 const input = ref('')
+function submit() {
+  return $fetch('/api/notes', {
+    method: 'POST',
+    body: {
+      content: input,
+      userId: user.value!.id
+    }
+  })
+}
 </script>
 
 <template>
@@ -28,7 +37,7 @@ const input = ref('')
         />
       </div>
     </UPageCTA>
-    <UChatPrompt v-model="input" @submit="input = ''"/>
+    <UChatPrompt v-model="input" @submit="submit"/>
     <UBlogPosts :posts="posts"/>
   </UPageSection>
 </template>
