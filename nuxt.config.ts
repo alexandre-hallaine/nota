@@ -15,5 +15,6 @@ export default defineNuxtConfig({
   css: ['~/assets/css/main.css'],
   hub: { workers: true, database: true },
   nitro: { experimental: { openAPI: true } },
-  $development: { hub: { remote: true } }
+  $development: { hub: { remote: true } },
+  app: { head: { title: 'Nota' } },
 })

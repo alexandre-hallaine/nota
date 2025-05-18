@@ -13,9 +13,8 @@ const items = [
 ]
 
 watch(loggedIn, () => {
-  if (!loggedIn.value) {
+  if (!loggedIn.value)
     navigateTo('/')
-  }
 })
 </script>
 
@@ -26,12 +25,7 @@ watch(loggedIn, () => {
 
       <template #right>
         <UDropdownMenu
-            :items="[
-            {
-              label: 'Logout',
-              onSelect: clear,
-            }
-          ]">
+            :items="[ { label: 'Logout', onSelect: clear } ]">
           <UButton :avatar=" { src: user.avatar_url }" :label="user.name" variant="outline"/>
         </UDropdownMenu>
       </template>
