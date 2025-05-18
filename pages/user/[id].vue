@@ -1,20 +1,22 @@
 <script setup lang="ts">
-const {user} = useUserSession()
+const {user: me} = useUserSession()
+const route = useRoute()
+const {data: user} = useFetch<User>(`/api/users/${route.params.id}`);
 
-const input = ref('')
-function submit() {
-  return $fetch('/api/notes', {
-    method: 'POST',
-    body: {
-      content: input.value,
-      userId: user.value!.id
-    }
-  })
-}
+// const input = ref('')
+// function submit() {
+//   return $fetch('/api/notes', {
+//     method: 'POST',
+//     body: {
+//       content: input.value,
+//       userId: user.id
+//     }
+//   })
+// }
 
 const { data: notes } = useQuery({
   key: ['notes'],
-  query: () => useRequestFetch()('/api/notes', { query: { userId: user.value!.id }}) as Promise<Note[]>
+  query: () => useRequestFetch()('/api/notes', { query: { userId: route.params.id } }) as Promise<Note[]>
 })
 </script>
 
@@ -23,20 +25,19 @@ const { data: notes } = useQuery({
     <UPageCTA
         v-if="user"
         :description="user.bio ?? ''"
-        :links="[{label:'Github', to: user.html_url}]"
+        :links="[{label:'Link', to: user.url, target: '_blank'}]"
         :title="user.name"
-        orientation="horizontal">
-      <div class="flex justify-center">
+        orientation="horizontal"
+        reverse>
         <NuxtImg
-            :src="user.avatar_url"
+            :src="user.avatar"
             alt="avatar"
             class="rounded-lg"
             height="364"
             width="320"
         />
-      </div>
     </UPageCTA>
-    <UChatPrompt v-model="input" @submit="submit"/>
+    <!--    <UChatPrompt v-model="input" @submit="submit"/>-->
     <UBlogPosts :posts="notes?.map(note => ({description: note.content, date: note.createdAt}))"/>
   </UPageSection>
 </template>
