@@ -1,22 +1,21 @@
 <script setup lang="ts">
 const {user} = useUserSession()
 
-const posts = ref(Array.from({length: 50},
-    () => ({
-      description: "Discover Nuxt Icon v1 - a modern, versatile, and customizable icon solution for your Nuxt projects.",
-      date: '2024-11-25',
-    })))
-
 const input = ref('')
 function submit() {
   return $fetch('/api/notes', {
     method: 'POST',
     body: {
-      content: input,
+      content: input.value,
       userId: user.value!.id
     }
   })
 }
+
+const { data: notes } = useQuery({
+  key: ['notes'],
+  query: () => useRequestFetch()('/api/notes', { query: { userId: user.value!.id }}) as Promise<Note[]>
+})
 </script>
 
 <template>
@@ -38,6 +37,6 @@ function submit() {
       </div>
     </UPageCTA>
     <UChatPrompt v-model="input" @submit="submit"/>
-    <UBlogPosts :posts="posts"/>
+    <UBlogPosts :posts="notes?.map(note => ({description: note.content, date: note.createdAt}))"/>
   </UPageSection>
 </template>

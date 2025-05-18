@@ -1,4 +1,4 @@
 export default eventHandler(async (event) => {
-    const {userId} = await readBody(event)
-    return await useDrizzle().select().from(tables.notes).where(eq(tables.notes.userId, userId)).all();
+    const {userId} = getQuery(event)
+    return useDrizzle().select().from(tables.notes).where(eq(tables.notes.userId, Number(userId))).orderBy(desc(tables.notes.createdAt)).all();
 })

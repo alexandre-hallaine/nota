@@ -8,7 +8,9 @@ export default defineNuxtConfig({
     '@nuxt/test-utils',
     'nuxt-auth-utils',
     '@nuxthub/core',
-    '@nuxt/image'
+    '@nuxt/image',
+    '@pinia/nuxt',
+    '@pinia/colada-nuxt'
   ],
   css: ['~/assets/css/main.css'],
   hub: { workers: true, database: true },
