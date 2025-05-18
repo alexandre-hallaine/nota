@@ -1,5 +1,5 @@
 <script setup>
-const { loggedIn, clear, user } = useUserSession()
+const {loggedIn, clear, user} = useUserSession()
 
 const items = [
   {
@@ -26,13 +26,13 @@ watch(loggedIn, () => {
 
       <template #right>
         <UDropdownMenu
-          :items="[
+            :items="[
             {
               label: 'Logout',
               onSelect: clear,
             }
           ]">
-          <UButton :label="user.name" :avatar=" { src: user.avatar_url }" variant="outline"/>
+          <UButton :avatar=" { src: user.avatar_url }" :label="user.name" variant="outline"/>
         </UDropdownMenu>
       </template>
 

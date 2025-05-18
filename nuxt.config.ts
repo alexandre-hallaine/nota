@@ -7,7 +7,8 @@ export default defineNuxtConfig({
     '@nuxt/ui-pro',
     '@nuxt/test-utils',
     'nuxt-auth-utils',
-    '@nuxthub/core'
+    '@nuxthub/core',
+    '@nuxt/image'
   ],
   css: ['~/assets/css/main.css'],
   hub: { workers: true, database: true },
