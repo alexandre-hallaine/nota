@@ -1,20 +1,19 @@
-<script setup>
+<script setup lang="ts">
 const {loggedIn, clear, user} = useUserSession()
-
-const items = [
-  {
-    label: 'Feed',
-    to: '/feed',
-  },
-  {
-    label: 'Me',
-    to: `/user/${user.value.id}`,
-  }
-]
 
 watch(loggedIn, () => {
   if (!loggedIn.value)
     navigateTo('/')
+})
+
+const items = [
+  {label: 'Feed', to: '/feed'},
+  {label: 'Me', to: `/user/${user.value.id}`}
+]
+
+const {data: me} = useQuery({
+  key: ['user'],
+  query: () => useRequestFetch()(`/api/users/${user.value.id}`) as Promise<User>
 })
 </script>
 
@@ -25,8 +24,8 @@ watch(loggedIn, () => {
 
       <template #right>
         <UDropdownMenu
-            :items="[ { label: 'Logout', onSelect: clear } ]">
-          <UButton :avatar=" { src: user.avatar_url }" :label="user.name" variant="outline"/>
+            :items="[ { label: 'Settings', to: '/user/settings' },{ label: 'Logout', onSelect: clear } ]">
+          <UButton :label="me.name" variant="outline"/>
         </UDropdownMenu>
       </template>
 

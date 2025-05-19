@@ -53,22 +53,12 @@ const { mutate: deleteNote } = useMutation({
   <UPageSection v-if="user">
     <UPageCTA
         :description="user.bio ?? ''"
-        :links="[{label:'Link', to: user.url, target: '_blank'}]"
         :title="user.name"
-        orientation="horizontal"
-        reverse>
-        <NuxtImg
-            :src="user.avatar"
-            alt="avatar"
-            class="rounded-lg"
-            height="300"
-            width="300"
-        />
-    </UPageCTA>
+    />
     <UChatPrompt v-if="user.id == me.id"  v-model="input" :loading @submit="createNote(input)"/>
     <UBlogPosts v-if="notes" >
       <UBlogPost
-        v-for="(note, index) in notes?.map(({notes: note}) => ({id: note.id, description: note.content, date: note.createdAt}))"
+        v-for="(note, index) in notes?.map(({notes: note1}) => ({id: note1.id, description: note1.content, date: note1.createdAt}))"
         :key="index"
         v-bind="note"
       >

@@ -11,7 +11,6 @@ const {data: notes} = useFetch<{notes: Note, users: User}[]>('/api/notes');
         date: note.createdAt,
         authors: [{
           name: user.name,
-          avatar: { src: user.avatar },
           to: `/user/${user.id}`
         }]
       }))"/>
