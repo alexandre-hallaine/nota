@@ -3,8 +3,8 @@ const {loggedIn, clear, user} = useUserSession()
 
 const items = [
   {
-    label: 'Home',
-    to: '/app',
+    label: 'Feed',
+    to: '/feed',
   },
   {
     label: 'Me',

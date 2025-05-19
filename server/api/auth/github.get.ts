@@ -10,6 +10,6 @@ export default defineOAuthGitHubEventHandler({
     }).onConflictDoNothing({ target: tables.users.id });
 
     await setUserSession(event, {user})
-    return sendRedirect(event, '/app')
+    return sendRedirect(event, '/feed')
   }
 })
