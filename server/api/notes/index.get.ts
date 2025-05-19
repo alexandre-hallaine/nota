@@ -4,10 +4,11 @@ export default eventHandler((event) => {
     let query = useDrizzle()
         .select()
         .from(tables.notes)
-        .leftJoin(tables.users, eq(tables.notes.userId, tables.users.id));
 
     if (userId)
         query = query.where(eq(tables.notes.userId, Number(userId)));
+    else
+        query = query.leftJoin(tables.users, eq(tables.notes.userId, tables.users.id));
 
     return query.orderBy(desc(tables.notes.createdAt)).all();
 })

@@ -15,6 +15,13 @@
       "when": 1747665433112,
       "tag": "0001_eminent_leader",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1747678978053,
+      "tag": "0002_lonely_the_hood",
+      "breakpoints": true
     }
   ]
 }
