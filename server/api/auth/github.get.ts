@@ -3,10 +3,8 @@ export default defineOAuthGitHubEventHandler({
 
     await useDrizzle().insert(tables.users).values({
       id: user.id,
-      name: user.name,
-      avatar: user.avatar_url,
-      bio: user.bio,
-      url: user.blog || user.html_url
+      name: user.name ?? user.login,
+      bio: user.bio ?? 'Nothing to say',
     }).onConflictDoNothing({ target: tables.users.id });
 
     await setUserSession(event, {user})
