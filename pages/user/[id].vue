@@ -13,7 +13,7 @@ const { data: notes } = useQuery({
   query: () => useRequestFetch()('/api/notes', { query: { userId: route.params.id } }) as Promise<{notes: Note}[]>
 })
 
-const { mutate: create, isLoading: loading } = useMutation({
+const { mutate: createNote, isLoading: loading } = useMutation({
   mutation: (content: string) => {
     if (!content.trim()) throw new Error('Content is required')
     return $fetch('/api/notes', {
@@ -34,6 +34,19 @@ const { mutate: create, isLoading: loading } = useMutation({
     input.value = ''
   },
 })
+
+const { mutate: deleteNote } = useMutation({
+  mutation: (id: number) => {
+    return $fetch(`/api/notes/${id}`, {
+      method: 'DELETE'
+    })
+  },
+
+  async onSuccess() {
+    await queryCache.invalidateQueries({ key: ['notes', user.id] })
+    toast.add({ title: `Note deleted.` })
+  },
+})
 </script>
 
 <template>
@@ -52,7 +65,17 @@ const { mutate: create, isLoading: loading } = useMutation({
             width="300"
         />
     </UPageCTA>
-    <UChatPrompt v-if="user.id == me.id"  v-model="input" :loading @submit="create(input)"/>
-    <UBlogPosts v-if="notes" :posts="notes?.map(({notes: note}) => ({description: note.content, date: note.createdAt}))"/>
+    <UChatPrompt v-if="user.id == me.id"  v-model="input" :loading @submit="createNote(input)"/>
+    <UBlogPosts v-if="notes" >
+      <UBlogPost
+        v-for="(note, index) in notes?.map(({notes: note}) => ({id: note.id, description: note.content, date: note.createdAt}))"
+        :key="index"
+        v-bind="note"
+      >
+        <template #authors>
+          <UButton icon="i-lucide-delete" label="Delete Note" @click="deleteNote(note.id)"/>
+        </template>
+      </UBlogPost>
+    </UBlogPosts>
   </UPageSection>
 </template>
